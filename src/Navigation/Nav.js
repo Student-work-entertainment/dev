@@ -36,7 +36,7 @@ function Nav() {
             placeholder="Search"
             aria-label="Search"
           ></input>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
             Search
           </button>
         </form>

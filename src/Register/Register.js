@@ -1,12 +1,42 @@
 import React from "react";
 
+const register = {
+  color: "green",
+  textAlign: "center",
+  paddingBottom: "30px",
+};
+
 function Register() {
   return (
-    <div className="container">
+    <div className="container mt-4">
       <div>
-        <h1>Register Page</h1>
+        <h1 style={register}>Register accaunt</h1>
       </div>
       <form>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationCustom01">First name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="validationCustom01"
+              placeholder="Write you name"
+              required
+            ></input>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="validationCustom02">Last name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="validationCustom02"
+              placeholder="Write you last name"
+              required
+            ></input>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+        </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input
@@ -35,7 +65,7 @@ function Register() {
             type="password"
             class="form-control"
             id="exampleInputPassword1"
-            placeholder="Password"
+            placeholder="Password again"
           ></input>
         </div>
         <div class="form-check"></div>

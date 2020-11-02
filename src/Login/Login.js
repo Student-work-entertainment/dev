@@ -1,10 +1,20 @@
 import React from "react";
 
+const divContainer = {
+  padding: "15px",
+  margin: "30px auto",
+};
+const login = {
+  color: "green",
+  textAlign: "center",
+  paddingBottom: "30px",
+};
+
 function Login() {
   return (
-    <div className="container">
+    <div className="container mt-4" style={divContainer}>
       <div>
-        <h1>Login Page</h1>
+        <h1 style={login}>Login</h1>
       </div>
       <form>
         <div class="form-group">
