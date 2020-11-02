@@ -13,63 +13,63 @@ function Register() {
         <h1 style={register}>Register accaunt</h1>
       </div>
       <form>
-        <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <label for="validationCustom01">First name</label>
+        <div className="form-row">
+          <div className="col-md-6 mb-3">
+            <label>First name</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="validationCustom01"
               placeholder="Write you name"
               required
             ></input>
-            <div class="valid-feedback">Looks good!</div>
+            <div className="valid-feedback">Looks good!</div>
           </div>
-          <div class="col-md-6 mb-3">
-            <label for="validationCustom02">Last name</label>
+          <div className="col-md-6 mb-3">
+            <label>Last name</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="validationCustom02"
               placeholder="Write you last name"
               required
             ></input>
-            <div class="valid-feedback">Looks good!</div>
+            <div className="valid-feedback">Looks good!</div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+        <div className="form-group">
+          <label>Email address</label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Enter email"
           ></input>
-          <small id="emailHelp" class="form-text text-muted">
+          <small id="emailHelp" className="form-text text-muted">
             We'll never share your email with anyone else.
           </small>
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
+        <div className="form-group">
+          <label>Password</label>
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
             placeholder="Password"
           ></input>
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password again</label>
+        <div className="form-group">
+          <label>Password again</label>
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             id="exampleInputPassword1"
             placeholder="Password again"
           ></input>
         </div>
-        <div class="form-check"></div>
-        <button type="submit" class="btn btn-primary">
+        <div className="form-check"></div>
+        <button type="submit" className="btn btn-primary">
           Register
         </button>
       </form>

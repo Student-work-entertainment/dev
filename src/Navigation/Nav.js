@@ -1,15 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Nav() {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <Link to="/" class="navbar-brand" href="#">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <Link to="/" className="navbar-brand" href="#">
           Home
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNavAltMarkup"
@@ -17,26 +17,29 @@ function Nav() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <Link to="/login" class="nav-item nav-link active" href="#">
-              Login <span class="sr-only">(current)</span>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <Link to="/login" className="nav-item nav-link active" href="#">
+              Login <span className="sr-only">(current)</span>
             </Link>
-            <Link to="/register" class="nav-item nav-link" href="#">
+            <Link to="/register" className="nav-item nav-link" href="#">
               Register
             </Link>
           </div>
         </div>
-        <form class="form-inline">
+        <form className="form-inline">
           <input
-            class="form-control mr-sm-2"
+            className="form-control mr-sm-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           ></input>
-          <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
+          <button
+            className="btn btn-outline-warning my-2 my-sm-0"
+            type="submit"
+          >
             Search
           </button>
         </form>
