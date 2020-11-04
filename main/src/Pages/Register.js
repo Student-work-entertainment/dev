@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import {useHttp} from "../Hooks/http.hook";
 
 const register = {
   color: "green",
@@ -7,20 +8,43 @@ const register = {
 };
 
 function Register() {
+  const [form, setForm] = useState({
+    FirsName: "",
+    LastName: "",
+    email: "",
+    password: "",
+    secondPassword: "",
+  });
+
+  const {loading,error,request} = useHttp()
+  const changeHandler = (event) => {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  };
+
+  const  registerHandelr = async () => {
+    try {
+      const data = await request('/api/auth/register', 'POST', {...form})
+      console.log('Data',data)
+    }catch (e){
+
+    }
+  }
+
   return (
     <div className="container mt-4">
       <div>
         <h1 style={register}>Register accaunt</h1>
       </div>
-      <form>
         <div className="form-row">
           <div className="col-md-6 mb-3">
             <label>First name</label>
             <input
               type="text"
               className="form-control"
-              id="validationCustom01"
+              id="FirsName"
+              name="FirsName"
               placeholder="Write you name"
+              onChange={changeHandler}
               required
             ></input>
             <div className="valid-feedback">Looks good!</div>
@@ -30,8 +54,10 @@ function Register() {
             <input
               type="text"
               className="form-control"
-              id="validationCustom02"
+              id="LastName"
+              name="LastName"
               placeholder="Write you last name"
+              onChange={changeHandler}
               required
             ></input>
             <div className="valid-feedback">Looks good!</div>
@@ -42,9 +68,11 @@ function Register() {
           <input
             type="email"
             className="form-control"
-            id="exampleInputEmail1"
+            id="email"
+            name="email"
             aria-describedby="emailHelp"
             placeholder="Enter email"
+            onChange={changeHandler}
           ></input>
           <small id="emailHelp" className="form-text text-muted">
             We'll never share your email with anyone else.
@@ -55,8 +83,10 @@ function Register() {
           <input
             type="password"
             className="form-control"
-            id="exampleInputPassword1"
+            id="password"
+            name="password"
             placeholder="Password"
+            onChange={changeHandler}
           ></input>
         </div>
         <div className="form-group">
@@ -64,15 +94,16 @@ function Register() {
           <input
             type="password"
             className="form-control"
-            id="exampleInputPassword1"
+            id="secondPassword"
+            name="secondPassword"
             placeholder="Password again"
+            onChange={changeHandler}
           ></input>
         </div>
         <div className="form-check"></div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" onClick={registerHandelr} disabled={loading}>
           Register
         </button>
-      </form>
     </div>
   );
 }
