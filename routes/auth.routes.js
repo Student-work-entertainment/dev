@@ -8,7 +8,7 @@ const bcrypt = require("bcryptjs");
 
 router.post("/register", async(req, res)=>{
     try {
-      const {email, password} = req.body;
+      const {email, password, FirsName, LastName, secondPassword} = req.body;
 
       const candidate = await User.findOne({ email });
 
@@ -17,7 +17,7 @@ router.post("/register", async(req, res)=>{
       }
 
       const hashedPassword = await bcrypt.hash(password, 12);
-      const user = new User({email, password: hashedPassword});
+      const user = new User({email, password: hashedPassword,FirsName,LastName,secondPassword});
 
       await user.save();
 
@@ -26,7 +26,6 @@ router.post("/register", async(req, res)=>{
 
     } catch (e) {
        res.status(500).json({message:"Something is wrong. Try again"});
-
     }
 });
 

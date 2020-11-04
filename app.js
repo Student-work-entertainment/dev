@@ -8,6 +8,8 @@ const mongoUrl = `mongodb+srv://admin:taras-igor@cluster0.jffyq.mongodb.net/app?
 
 //Autorization module
 
+app.use(express.json({extendet:true}))
+
 app.use("/api/auth", require("./routes/auth.routes"));
 
 async function start() {
