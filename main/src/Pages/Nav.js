@@ -1,7 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 
 function Nav() {
+  const auth = useContext(AuthContext);
+  const history = useHistory();
+  const logoutHandler = (event) => {
+    event.preventDefault();
+    auth.logout();
+    history.push("/");
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,6 +35,18 @@ function Nav() {
             </Link>
             <Link to="/register" className="nav-item nav-link" href="#">
               Register
+            </Link>
+          </div>
+        </div>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <Link
+              to="/register"
+              className="nav-item nav-link"
+              href="#"
+              onClick={logoutHandler}
+            >
+              Logout
             </Link>
           </div>
         </div>
