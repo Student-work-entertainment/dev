@@ -1,26 +1,28 @@
 import "./App.css";
-import { BrowserRouter as Router, Route,Switch,Redirect } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Home from "./Pages/Home";
 import Nav from "./Pages/Nav";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
+import { useAuth } from "./Hooks/auth.hooks";
+import { AuthContext } from "./Context/AuthContext";
+import { useRoutes } from "./routes";
 
 function App() {
+  const { token, login, logout, userId } = useAuth();
+  const isAuthenticated = !!token;
+  const routes = useRoutes(isAuthenticated);
   return (
-    <Router>
-      <div>
-        <Nav></Nav>
-        <Route exact path="/">
-          <Home></Home>
-        </Route>
-        <Route exact path="/register">
-          <Register></Register>
-        </Route>
-        <Route exact path="/login">
-          <Login></Login>
-        </Route>
-      </div>
-    </Router>
+    <AuthContext.Provider
+      value={{ token, login, logout, userId, isAuthenticated }}
+    >
+      <Router>
+        <div>
+          <Nav></Nav>
+          {routes}
+        </div>
+      </Router>
+    </AuthContext.Provider>
   );
 }
 
