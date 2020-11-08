@@ -19,14 +19,13 @@ function Login() {
     password: "",
   });
   const { loading, error, request } = useHttp();
-
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
   const loginHandelr = async () => {
     try {
       const data = await request("/api/auth/login", "POST", { ...form });
-      auth.login(data.token, data.userId);
+      auth.login(data.token, data.userId, data.userFN, data.userLN);
     } catch (e) {}
   };
 
@@ -62,7 +61,12 @@ function Login() {
         ></input>
       </div>
       <div className="form-check"></div>
-      <button onClick={loginHandelr} type="submit" className="btn btn-primary">
+      <button
+        disabled={loading}
+        onClick={loginHandelr}
+        type="submit"
+        className="btn btn-primary"
+      >
         Login
       </button>
     </div>

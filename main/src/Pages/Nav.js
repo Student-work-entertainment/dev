@@ -38,18 +38,7 @@ function Nav() {
             </Link>
           </div>
         </div>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <Link
-              to="/register"
-              className="nav-item nav-link"
-              href="#"
-              onClick={logoutHandler}
-            >
-              Logout
-            </Link>
-          </div>
-        </div>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup"></div>
         <form className="form-inline">
           <input
             className="form-control mr-sm-2"

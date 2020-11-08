@@ -81,7 +81,14 @@ router.post(
         jwtSecret,
         { expiresIn: "1h" }
       );
-      res.json({ token, userId: user.id });
+      console.log("Login:", user.FirsName);
+
+      res.json({
+        token,
+        userId: user.id,
+        userFN: user.FirsName,
+        userLN: user.LastName,
+      });
     } catch (e) {
       res.status(500).json({ message: "Something is wrong. Try again" });
     }
