@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { toast } from "react-toastify";
 
 export const useMessageError = () => {
@@ -6,7 +6,7 @@ export const useMessageError = () => {
   return useCallback((text) => {
     if (text) {
       toast.error(text, {
-        position: toast.POSITION.TOP_LEFT,
+        position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -23,7 +23,7 @@ export const useMessageSuccess = () => {
   return useCallback((text) => {
     if (text) {
       toast.success(text, {
-        position: toast.POSITION.TOP_LEFT,
+        position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

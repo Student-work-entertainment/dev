@@ -20,6 +20,7 @@ function Register() {
   });
 
   const { loading, error, request, clearError } = useHttp();
+
   useEffect(() => {
     messageError(error);
     clearError();
@@ -37,9 +38,9 @@ function Register() {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container col-sm-5 mt-4">
       <div>
-        <h1 style={register}>Register accaunt</h1>
+        <h1 style={register}>Register page</h1>
       </div>
       <div className="form-row">
         <div className="col-md-6 mb-3">
@@ -109,7 +110,7 @@ function Register() {
       <div className="form-check"></div>
       <button
         type="submit"
-        className="btn btn-primary"
+        className="btn btn-primary btn-block mb-4"
         onClick={registerHandelr}
         disabled={loading}
       >

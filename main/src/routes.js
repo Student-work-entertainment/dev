@@ -1,12 +1,15 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Home from "./Pages/Home";
-import Nav from "./Pages/Nav";
-import HomeAuth from "./Pages/HomeAuth";
-import Login from "./Pages/Login";
-import Register from "./Pages/Register";
-import AuthNav from "./Pages/AuthNavigation";
-import { ToastContainer, toast } from "react-toastify";
+
+import Home from "./Guests/Home";
+import Nav from "./Guests/Nav";
+import Login from "./Guests/Login";
+import Register from "./Guests/Register";
+
+import UserHome from "./User/UserHome";
+import AuthNav from "./User/UserNav";
+import UserProfile from "./User/UserProfile";
+import UserResume from "./User/UserResume";
 
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {
@@ -14,7 +17,15 @@ export const useRoutes = (isAuthenticated) => {
       <Switch>
         <Route path="/" exact>
           <AuthNav></AuthNav>
-          <HomeAuth />
+          <UserHome />
+        </Route>
+        <Route path="/profile">
+          <AuthNav></AuthNav>
+          <UserProfile />
+        </Route>
+        <Route path="/resume" exact>
+          <AuthNav></AuthNav>
+          <UserResume />
         </Route>
         <Redirect to="/"></Redirect>
       </Switch>
@@ -34,6 +45,7 @@ export const useRoutes = (isAuthenticated) => {
         <Nav></Nav>
         <Register></Register>
       </Route>
+      <Redirect to="/"></Redirect>
     </Switch>
   );
 };

@@ -1,8 +1,9 @@
 import React from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { ToastContainer } from "react-toastify";
+import Content from "../Guests/Content";
 
-function HomeAuth() {
+function UserHome() {
   return (
     <div>
       <ToastContainer
@@ -20,16 +21,17 @@ function HomeAuth() {
         {(value) => {
           return (
             <div className="container mt-5">
-              <h1>Hello {value.userFN} !</h1>
-              <label className="label">
-                {" "}
-                You full name: {value.userFN + " " + value.userLN}
-              </label>
+              <h1>
+                <b>Вакансии на текущий момент для вас {value.userFN} 😌 </b>
+              </h1>
             </div>
           );
         }}
       </AuthContext.Consumer>
+      <Content></Content>
+      <Content></Content>
+      <Content></Content>
     </div>
   );
 }
-export default HomeAuth;
+export default UserHome;

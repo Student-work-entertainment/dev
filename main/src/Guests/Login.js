@@ -37,7 +37,7 @@ function Login() {
     try {
       const data = await request("/api/auth/login", "POST", { ...form });
       auth.login(data.token, data.userId, data.userFN, data.userLN);
-      messageSuccess("Hello " + data.userFN + "!");
+      messageSuccess("Hello " + data.userFN + " 😃 ");
     } catch (e) {}
   };
 
@@ -54,11 +54,11 @@ function Login() {
         draggable
         pauseOnHover
       />
-      <div className="container mt-4" style={divContainer}>
+      <div className="container col-sm-3 mt-4 md" style={divContainer}>
         <div>
-          <h1 style={login}>Login</h1>
+          <h1 style={login}>Login page</h1>
         </div>
-        <div className="form-group">
+        <div className="form-group ">
           <label>Email address</label>
           <input
             type="email"
@@ -89,7 +89,7 @@ function Login() {
           disabled={loading}
           onClick={loginHandelr}
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-block btn-primary m-auto"
         >
           Login
         </button>
