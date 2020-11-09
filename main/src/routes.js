@@ -6,6 +6,7 @@ import HomeAuth from "./Pages/HomeAuth";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import AuthNav from "./Pages/AuthNavigation";
+import { ToastContainer, toast } from "react-toastify";
 
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {

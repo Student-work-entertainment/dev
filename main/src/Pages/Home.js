@@ -1,10 +1,13 @@
 import React from "react";
+import Content from "./Content";
 
 function Home() {
   return (
-    <div className="container mt-5">
-      <h1>Home Page</h1>
-      <label className="label">It's a work :)</label>
+    <div className="mt-5">
+      <Content></Content>
+      <Content></Content>
+      <Content></Content>
+      <Content></Content>
     </div>
   );
 }

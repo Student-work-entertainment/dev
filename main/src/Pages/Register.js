@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import {useHttp} from "../Hooks/http.hook";
+import React, { useState, useEffect } from "react";
+import { useHttp } from "../Hooks/http.hook";
+import { useMessageError, useMessageSuccess } from "../Hooks/message.hook";
 
 const register = {
   color: "green",
@@ -8,6 +9,8 @@ const register = {
 };
 
 function Register() {
+  const messageError = useMessageError();
+  const messageSuccess = useMessageSuccess();
   const [form, setForm] = useState({
     FirsName: "",
     LastName: "",
@@ -16,93 +19,102 @@ function Register() {
     secondPassword: "",
   });
 
-  const {loading,error,request} = useHttp()
+  const { loading, error, request, clearError } = useHttp();
+  useEffect(() => {
+    messageError(error);
+    clearError();
+  }, [error, messageError, clearError]);
+
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const  registerHandelr = async () => {
+  const registerHandelr = async () => {
     try {
-      const data = await request('/api/auth/register', 'POST', {...form})
-    }catch (e){
-
-    }
-  }
+      const data = await request("/api/auth/register", "POST", { ...form });
+      messageSuccess(data.message);
+    } catch (e) {}
+  };
 
   return (
     <div className="container mt-4">
       <div>
         <h1 style={register}>Register accaunt</h1>
       </div>
-        <div className="form-row">
-          <div className="col-md-6 mb-3">
-            <label>First name</label>
-            <input
-              type="text"
-              className="form-control"
-              id="FirsName"
-              name="FirsName"
-              placeholder="Write you name"
-              onChange={changeHandler}
-              required
-            ></input>
-            <div className="valid-feedback">Looks good!</div>
-          </div>
-          <div className="col-md-6 mb-3">
-            <label>Last name</label>
-            <input
-              type="text"
-              className="form-control"
-              id="LastName"
-              name="LastName"
-              placeholder="Write you last name"
-              onChange={changeHandler}
-              required
-            ></input>
-            <div className="valid-feedback">Looks good!</div>
-          </div>
-        </div>
-        <div className="form-group">
-          <label>Email address</label>
+      <div className="form-row">
+        <div className="col-md-6 mb-3">
+          <label>First name</label>
           <input
-            type="email"
+            type="text"
             className="form-control"
-            id="email"
-            name="email"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
+            id="FirsName"
+            name="FirsName"
+            placeholder="Write you name"
             onChange={changeHandler}
+            required
           ></input>
-          <small id="emailHelp" className="form-text text-muted">
-            We'll never share your email with anyone else.
-          </small>
+          <div className="valid-feedback">Looks good!</div>
         </div>
-        <div className="form-group">
-          <label>Password</label>
+        <div className="col-md-6 mb-3">
+          <label>Last name</label>
           <input
-            type="password"
+            type="text"
             className="form-control"
-            id="password"
-            name="password"
-            placeholder="Password"
+            id="LastName"
+            name="LastName"
+            placeholder="Write you last name"
             onChange={changeHandler}
+            required
           ></input>
+          <div className="valid-feedback">Looks good!</div>
         </div>
-        <div className="form-group">
-          <label>Password again</label>
-          <input
-            type="password"
-            className="form-control"
-            id="secondPassword"
-            name="secondPassword"
-            placeholder="Password again"
-            onChange={changeHandler}
-          ></input>
-        </div>
-        <div className="form-check"></div>
-        <button type="submit" className="btn btn-primary" onClick={registerHandelr} disabled={loading}>
-          Register
-        </button>
+      </div>
+      <div className="form-group">
+        <label>Email address</label>
+        <input
+          type="email"
+          className="form-control"
+          id="email"
+          name="email"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+          onChange={changeHandler}
+        ></input>
+        <small id="emailHelp" className="form-text text-muted">
+          We'll never share your email with anyone else.
+        </small>
+      </div>
+      <div className="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          className="form-control"
+          id="password"
+          name="password"
+          placeholder="Password"
+          onChange={changeHandler}
+        ></input>
+      </div>
+      <div className="form-group">
+        <label>Password again</label>
+        <input
+          type="password"
+          className="form-control"
+          id="secondPassword"
+          name="secondPassword"
+          placeholder="Password again"
+          onChange={changeHandler}
+        ></input>
+      </div>
+      <div className="form-check"></div>
+      <button
+        type="submit"
+        className="btn btn-primary"
+        onClick={registerHandelr}
+        disabled={loading}
+      >
+        Register
+      </button>
     </div>
   );
 }
