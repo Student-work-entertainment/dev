@@ -10,12 +10,17 @@ import UserHome from "./User/UserHome";
 import AuthNav from "./User/UserNav";
 import UserProfile from "./User/UserProfile";
 import UserResume from "./User/UserResume";
+import DetailPage from "./Guests/DetailPage";
 
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {
     return (
       <Switch>
         <Route path="/" exact>
+          <AuthNav></AuthNav>
+          <UserHome />
+        </Route>
+        <Route path="/detail" exact>
           <AuthNav></AuthNav>
           <UserHome />
         </Route>
@@ -40,6 +45,10 @@ export const useRoutes = (isAuthenticated) => {
       <Route path="/login" exact>
         <Nav></Nav>
         <Login></Login>
+      </Route>
+      <Route path="/detail" exact>
+        <DetailPage></DetailPage>
+        <UserHome />
       </Route>
       <Route path="/register" exact>
         <Nav></Nav>

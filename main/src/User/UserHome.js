@@ -29,8 +29,6 @@ function UserHome() {
         }}
       </AuthContext.Consumer>
       <Content></Content>
-      <Content></Content>
-      <Content></Content>
     </div>
   );
 }

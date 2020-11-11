@@ -3,10 +3,8 @@ import Content from "./Content";
 
 function Home() {
   return (
-    <div className="mt-5">
-      <Content></Content>
-      <Content></Content>
-      <Content></Content>
+    <div className=" container mt-5">
+      <h1>Популярные вакансии на сегодняшний день: </h1>
       <Content></Content>
     </div>
   );

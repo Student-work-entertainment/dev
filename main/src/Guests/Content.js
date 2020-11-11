@@ -1,25 +1,26 @@
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { useHttp } from "../Hooks/http.hook";
+import { Loader } from "../components/Loader";
 
-function Content(props) {
-  return (
-    <div className="container mt-5">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Work position {props.value}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="card-link">
-            Card link
-          </a>
-          <a href="#" class="card-link">
-            Another link
-          </a>
-        </div>
-      </div>
-    </div>
-  );
+import JobsList from "../components/JobsList";
+
+function Content() {
+  const [jobs, setJobs] = useState([]);
+  const { loading, request } = useHttp();
+  const jobsFeched = useCallback(async () => {
+    try {
+      const feched = await request("/api/jobs/jobs", "GET", null);
+      setJobs(feched);
+    } catch (e) {}
+  }, [request]);
+  useEffect(() => {
+    jobsFeched();
+  }, [jobsFeched]);
+  console.log(jobs);
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
+  return <>{!loading && <JobsList jobs={jobs}></JobsList>}</>;
 }
 export default Content;
