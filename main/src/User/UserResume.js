@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useHttp } from "../Hooks/http.hook";
 import { useMessageError, useMessageSuccess } from "../Hooks/message.hook";
 
 function UserResume() {
+  const history = useHistory();
   const messageError = useMessageError();
   const messageSuccess = useMessageSuccess();
   const [form, setForm] = useState({
@@ -26,6 +28,7 @@ function UserResume() {
     try {
       const data = await request("/api/jobs/create", "POST", { ...form });
       messageSuccess(data.message);
+      history.push(`/detail/${data.jobs._id}`);
     } catch (e) {}
   };
 

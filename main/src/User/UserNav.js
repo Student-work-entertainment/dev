@@ -13,9 +13,9 @@ function AuthNav() {
 
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg p-3 mb-5">
         <Link to="/" class="navbar-brand" href="#">
-          Home
+          Домой
         </Link>
         <button
           class="navbar-toggler"
@@ -38,7 +38,7 @@ function AuthNav() {
             </li>
             <li class="nav-item">
               <Link class="nav-link" to="/resume">
-                Ваше резюме
+                Создать вакансию
               </Link>
             </li>
             <li class="nav-item">
@@ -51,18 +51,21 @@ function AuthNav() {
             <input
               class="form-control mr-sm-2"
               type="search"
-              placeholder="Search"
+              placeholder="Поиск вкансий..."
               aria-label="Search"
             ></input>
-            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
-              Search
+            <button
+              className="btn btn-outline-warning my-2 my-sm-0"
+              type="submit"
+            >
+              Поиск
             </button>
           </div>
-          <ul class="navbar-nav">
+          <ul class="navbar-nav mr-5">
             <li class="nav-item active">
               <Link
                 to="/"
-                className="nav-link ml-5"
+                className="ml-3 btn-outline-warning nav-link btn btn-block btn-warning text-dark"
                 href="#"
                 onClick={logoutHandler}
               >

@@ -1,9 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import { ToastContainer } from "react-toastify";
 import { AuthContext } from "../Context/AuthContext";
 import { useHttp } from "../Hooks/http.hook";
 import { useMessageError, useMessageSuccess } from "../Hooks/message.hook";
-import "react-toastify/dist/ReactToastify.css";
 
 const divContainer = {
   padding: "15px",
@@ -43,17 +41,6 @@ function Login() {
 
   return (
     <div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
       <div className="container col-sm-3 mt-4 md" style={divContainer}>
         <div>
           <h1 style={login}>Login page</h1>

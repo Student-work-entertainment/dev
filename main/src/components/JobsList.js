@@ -1,10 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const card = {
-  width: "18rem",
-};
-
 function JobsList({ jobs }) {
   if (!jobs.length) {
     return (
@@ -19,16 +15,18 @@ function JobsList({ jobs }) {
     <div>
       {jobs.map((job, index) => {
         return (
-          <div className="container  mt-5 text-center">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <b>{job.title}</b>
-                </h5>
-                <p class="card-text">{job.body}</p>
-                <Link to="" className="btn btn-primary">
-                  Подробней
-                </Link>
+          <div className="container">
+            <div class="row">
+              <div class="col mt-1">
+                <div class="card" id="card">
+                  <div class="card-body">
+                    <Link to={`/detail/${job._id}`} className="">
+                      <h5 class="card-title">{job.title}</h5>
+                    </Link>
+                    <p class="card-text">{job.body}</p>
+                    <p class="card-text">{job.data}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

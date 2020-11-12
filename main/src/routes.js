@@ -20,9 +20,9 @@ export const useRoutes = (isAuthenticated) => {
           <AuthNav></AuthNav>
           <UserHome />
         </Route>
-        <Route path="/detail" exact>
+        <Route path="/detail/:id" exact>
           <AuthNav></AuthNav>
-          <UserHome />
+          <DetailPage />
         </Route>
         <Route path="/profile">
           <AuthNav></AuthNav>
@@ -46,7 +46,8 @@ export const useRoutes = (isAuthenticated) => {
         <Nav></Nav>
         <Login></Login>
       </Route>
-      <Route path="/detail" exact>
+      <Route path="/detail/:id" exact>
+        <Nav></Nav>
         <DetailPage></DetailPage>
         <UserHome />
       </Route>

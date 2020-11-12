@@ -4,6 +4,8 @@ import { useAuth } from "./Hooks/auth.hooks";
 import { AuthContext } from "./Context/AuthContext";
 import { useRoutes } from "./routes";
 import { Loader } from "./components/Loader";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { token, login, logout, userId, userFN, userLN, ready } = useAuth();
@@ -15,13 +17,34 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider
-      value={{ token, login, logout, userId, isAuthenticated, userFN, userLN }}
-    >
-      <Router>
-        <div>{routes}</div>
-      </Router>
-    </AuthContext.Provider>
+    <>
+      <AuthContext.Provider
+        value={{
+          token,
+          login,
+          logout,
+          userId,
+          isAuthenticated,
+          userFN,
+          userLN,
+        }}
+      >
+        <Router>
+          <div>{routes}</div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </Router>
+      </AuthContext.Provider>
+    </>
   );
 }
 
