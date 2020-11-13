@@ -42,25 +42,11 @@ function AuthNav() {
               </Link>
             </li>
             <li class="nav-item">
-              <Link class="nav-link" to="/detail">
+              <Link class="nav-link" to="/vacancy">
                 Вакансии
               </Link>
             </li>
           </ul>
-          <div class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Поиск вкансий..."
-              aria-label="Search"
-            ></input>
-            <button
-              className="btn btn-outline-warning my-2 my-sm-0"
-              type="submit"
-            >
-              Поиск
-            </button>
-          </div>
           <ul class="navbar-nav mr-5">
             <li class="nav-item active">
               <Link

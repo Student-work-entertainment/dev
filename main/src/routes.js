@@ -11,6 +11,7 @@ import AuthNav from "./User/UserNav";
 import UserProfile from "./User/UserProfile";
 import UserResume from "./User/UserResume";
 import DetailPage from "./Guests/DetailPage";
+import { Vacancy } from "./User/Vacancy";
 
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {
@@ -31,6 +32,10 @@ export const useRoutes = (isAuthenticated) => {
         <Route path="/resume" exact>
           <AuthNav></AuthNav>
           <UserResume />
+        </Route>
+        <Route path="/vacancy" exact>
+          <AuthNav></AuthNav>
+          <Vacancy></Vacancy>
         </Route>
         <Redirect to="/"></Redirect>
       </Switch>

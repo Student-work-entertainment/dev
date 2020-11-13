@@ -16,7 +16,6 @@ function Content() {
   useEffect(() => {
     jobsFeched();
   }, [jobsFeched]);
-  console.log(jobs);
 
   if (loading) {
     return <Loader></Loader>;

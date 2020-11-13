@@ -1,16 +1,6 @@
-import React, { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { AuthContext } from "../Context/AuthContext";
+import { Link } from "react-router-dom";
 
 function Nav() {
-  const auth = useContext(AuthContext);
-  const history = useHistory();
-  const logoutHandler = (event) => {
-    event.preventDefault();
-    auth.logout();
-    history.push("/");
-  };
-
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark shadow-lg p-3 mb-5">

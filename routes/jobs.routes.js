@@ -20,6 +20,24 @@ router.post("/create", async (req, res) => {
   }
 });
 
+router.post("/search", async (req, res) => {
+  try {
+    const { title, city } = req.body;
+
+    const jobs = await Jobs.find({ title, city });
+    if (!jobs || !city) {
+      return res.json("Не удалось найти такую вакансию 😢");
+    }
+    res.json({
+      jobsTitle: jobs.title,
+      jobsCity: jobs.city,
+      jobsBody: jobs.body,
+    });
+  } catch (e) {
+    res.status(500).json({ message: "Something is wrong. Try again" });
+  }
+});
+
 router.get("/jobs", async (req, res) => {
   try {
     const jobs = await Jobs.find({});

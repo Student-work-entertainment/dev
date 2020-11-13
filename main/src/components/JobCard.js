@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Content from "../Guests/Content";
 
 export const JobCard = ({ job }) => {
   return (
     <div>
-      <div className="container mx-auto shadow-lg p-5">
+      <div className="container mx-auto shadow-lg p-5 mb-5">
         <div className="container mb-5 text-center">
           <h1>
             {" "}
@@ -29,6 +30,12 @@ export const JobCard = ({ job }) => {
             Откликнуться на вакансию
           </Link>
         </div>
+      </div>
+      <div className="container">
+        <h3>
+          <p>Похожие вакансии</p>
+        </h3>
+        <Content className="mt-5"></Content>
       </div>
     </div>
   );

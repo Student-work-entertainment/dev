@@ -13,22 +13,26 @@ function JobsList({ jobs }) {
   }
   return (
     <div>
-      {jobs.map((job, index) => {
+      {jobs.map((job, index, key) => {
         return (
-          <div className="container">
-            <div class="row">
-              <div class="col mt-1">
-                <div class="card" id="card">
-                  <div class="card-body">
+          <div className="container" key={job._id}>
+            <div className="row">
+              <div className="col mt-1">
+                <div className="card" id="card">
+                  <div className="card-body">
                     <Link to={`/detail/${job._id}`} className="">
-                      <h5 class="card-title">{job.title}</h5>
+                      <h5 className="card-title">{job.title}</h5>
                     </Link>
-                    <p class="card-text">{job.body}</p>
-                    <p class="card-text">{job.data}</p>
+                    <p className="card-text">{job.body}</p>
+                    <p className="card-text">{job.data}</p>
+                    <p className="card-text">
+                      Город <b>{job.city}</b>
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
+            <hr></hr>
           </div>
         );
       })}
