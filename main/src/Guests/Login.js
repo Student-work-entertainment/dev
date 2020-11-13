@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { Loader } from "../components/Loader";
 import { AuthContext } from "../Context/AuthContext";
 import { useHttp } from "../Hooks/http.hook";
 import { useMessageError, useMessageSuccess } from "../Hooks/message.hook";
@@ -36,9 +37,17 @@ function Login() {
     try {
       const data = await request("/api/auth/login", "POST", { ...form });
       auth.login(data.token, data.userId, data.userFN, data.userLN);
-      messageSuccess("Hello " + data.userFN + " 😃 ");
+      messageSuccess("Привет " + data.userFN + " 😃 ");
     } catch (e) {}
   };
+  if (loading) {
+    return (
+      <>
+        <h3 className="text-center text-success">Pleas Wait...</h3>
+        <Loader></Loader>
+      </>
+    );
+  }
 
   return (
     <div>

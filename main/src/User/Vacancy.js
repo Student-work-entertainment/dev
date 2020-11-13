@@ -8,7 +8,7 @@ export const Vacancy = () => {
       <AuthContext.Consumer>
         {(value) => {
           return (
-            <div className="container mt-5">
+            <div className="container mt-5 text-center">
               <h1>
                 <b>Вакансии на текущий момент для вас {value.userFN} 😌 </b>
               </h1>

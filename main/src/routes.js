@@ -54,7 +54,6 @@ export const useRoutes = (isAuthenticated) => {
       <Route path="/detail/:id" exact>
         <Nav></Nav>
         <DetailPage></DetailPage>
-        <UserHome />
       </Route>
       <Route path="/register" exact>
         <Nav></Nav>

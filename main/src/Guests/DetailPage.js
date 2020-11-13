@@ -21,7 +21,14 @@ function DetailPage() {
   }, [getJob]);
 
   if (loading) {
-    <Loader></Loader>;
+    return (
+      <>
+        <h3 className="text-center text-success">
+          Грузим эту вакансию для вас 😄
+        </h3>
+        <Loader></Loader>
+      </>
+    );
   }
   return <div>{!loading && job && <JobCard job={job}></JobCard>}</div>;
 }

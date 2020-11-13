@@ -5,8 +5,11 @@ function JobsList({ jobs }) {
   if (!jobs.length) {
     return (
       <div className="container">
-        <div className="alert alert-danger" role="alert">
-          Работы пока что нету
+        <div
+          className="alert alert-danger text-center text-dark mt-3"
+          role="alert"
+        >
+          Для вас работы пока что нету 😓
         </div>
       </div>
     );

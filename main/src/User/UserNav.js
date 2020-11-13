@@ -13,12 +13,12 @@ function AuthNav() {
 
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg p-3 mb-5">
-        <Link to="/" class="navbar-brand" href="#">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg p-3 mb-5">
+        <Link to="/" className="navbar-brand" href="#">
           Домой
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -26,29 +26,29 @@ function AuthNav() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <Link class="nav-link" to="/profile">
-                Профиль <span class="sr-only"></span>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/profile">
+                Профиль <span className="sr-only"></span>
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/resume">
+            <li className="nav-item">
+              <Link className="nav-link" to="/resume">
                 Создать вакансию
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/vacancy">
+            <li className="nav-item">
+              <Link className="nav-link" to="/vacancy">
                 Вакансии
               </Link>
             </li>
           </ul>
-          <ul class="navbar-nav mr-5">
-            <li class="nav-item active">
+          <ul className="navbar-nav mr-5">
+            <li className="nav-item active">
               <Link
                 to="/"
                 className="ml-3 btn-outline-warning nav-link btn btn-block btn-warning text-dark"

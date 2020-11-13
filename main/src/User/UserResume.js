@@ -35,27 +35,27 @@ function UserResume() {
   return (
     <div className="container mt-5">
       <h1>Создай свою вакансию 🛩 </h1>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Заголовк вакансии:</label>
+      <div className="form-group">
+        <label htmlFor="exampleFormControlInput1">Заголовк вакансии:</label>
         <input
           type="email"
           name="title"
-          class="form-control"
+          className="form-control"
           placeholder="Заголовок вакансии"
           onChange={changeHandler}
         ></input>
       </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Описание вакнсии:</label>
+      <div className="form-group">
+        <label htmlFor="exampleFormControlTextarea1">Описание вакнсии:</label>
         <textarea
-          class="form-control"
+          className="form-control"
           name="body"
           id="exampleFormControlTextarea1"
           rows="3"
           onChange={changeHandler}
         ></textarea>
       </div>
-      <label for="selectcity">Город работы:</label>
+      <label htmlFor="selectcity">Город работы:</label>
       <input
         className="form-control"
         id="selectcity"
