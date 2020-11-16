@@ -12,6 +12,7 @@ import UserProfile from "./User/UserProfile";
 import UserResume from "./User/UserResume";
 import DetailPage from "./Guests/DetailPage";
 import { Vacancy } from "./User/Vacancy";
+import { Response } from "./User/Response";
 
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {
@@ -37,6 +38,10 @@ export const useRoutes = (isAuthenticated) => {
           <AuthNav></AuthNav>
           <Vacancy></Vacancy>
         </Route>
+        <Route path="/response/:id">
+          <AuthNav></AuthNav>
+          <Response></Response>
+        </Route>
         <Redirect to="/"></Redirect>
       </Switch>
     );
@@ -58,6 +63,10 @@ export const useRoutes = (isAuthenticated) => {
       <Route path="/register" exact>
         <Nav></Nav>
         <Register></Register>
+      </Route>
+      <Route path="/response/:id">
+        <Nav></Nav>
+        <Login></Login>
       </Route>
       <Redirect to="/"></Redirect>
     </Switch>

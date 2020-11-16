@@ -27,8 +27,8 @@ function UserResume() {
   const AddVacancy = async () => {
     try {
       const data = await request("/api/jobs/create", "POST", { ...form });
-      messageSuccess(data.message);
-      history.push(`/detail/${data.jobs._id}`);
+      messageSuccess("Вакансия создана!");
+      history.push(`/detail/${data.jobId}`);
     } catch (e) {}
   };
 

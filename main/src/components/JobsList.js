@@ -18,7 +18,10 @@ function JobsList({ jobs }) {
     <div>
       {jobs.map((job, index, key) => {
         return (
-          <div className="container" key={job._id}>
+          <div
+            className="container shadow p-3 mb-5 bg-white rounded"
+            key={job._id}
+          >
             <div className="row">
               <div className="col mt-1">
                 <div className="card" id="card">
@@ -35,10 +38,14 @@ function JobsList({ jobs }) {
                 </div>
               </div>
             </div>
-            <hr></hr>
           </div>
         );
       })}
+      <div className="container">
+        <button className="btn btn-outline-secondary btn-lg btn-block mb-5">
+          Загрузить ещё
+        </button>
+      </div>
     </div>
   );
 }

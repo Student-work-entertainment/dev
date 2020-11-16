@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const router = Router();
+const moment = require("moment");
 
 const Jobs = require("../models/JobsVacansy");
 
@@ -12,7 +13,7 @@ router.post("/create", async (req, res) => {
       city,
     });
     await jobs.save();
-    res.status(201).json({ message: " Вакансия создана! 😉" });
+    res.status(201).json({ message: " Вакансия создана! 😉", jobId: jobs._id });
   } catch (e) {
     res.status(500).json({
       message: "Проблема с созданием вакансии, попробуйте ещё раз 😓",
@@ -23,7 +24,10 @@ router.post("/create", async (req, res) => {
 router.post("/search", async (req, res) => {
   try {
     const { title, city } = req.body;
-    const jobs = await Jobs.find({ title: { $regex: title, $options: "i" } });
+    const jobs = await Jobs.find({
+      title: { $regex: title, $options: "i" },
+      city: { $regex: city, $options: "i" },
+    });
     if (jobs.length <= 0) {
       res.status(500).json({
         message: "Не удалось найти вакансию 😓",
@@ -47,6 +51,7 @@ router.post("/search", async (req, res) => {
 router.get("/jobs", async (req, res) => {
   try {
     const jobs = await Jobs.find({});
+
     res.json(jobs);
   } catch (e) {
     res.status(500).json({ message: "Something is wrong. Try again" });

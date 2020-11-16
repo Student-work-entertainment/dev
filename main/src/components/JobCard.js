@@ -17,8 +17,8 @@ export const JobCard = ({ job }) => {
             <b>{job.title}</b>
           </h1>
         </div>
-        <div className="text-sm-left mb-3">
-          <h3>{job.body}</h3>
+        <div className="mb-3 container">
+          <h3 className="text-left text ">{job.body}</h3>
         </div>
         <div className="text-justify container mb-3">
           <p>
@@ -26,7 +26,10 @@ export const JobCard = ({ job }) => {
           </p>
         </div>
         <div className="container text-center">
-          <Link to="" className="btn btn-warning mb-3 text-center">
+          <Link
+            to={`/response/${job._id}`}
+            className="btn btn-warning mb-3 text-center"
+          >
             Откликнуться на вакансию
           </Link>
         </div>

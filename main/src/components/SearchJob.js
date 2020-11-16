@@ -28,6 +28,7 @@ export const SearchJob = () => {
     try {
       const data = await request("/api/jobs/search", "POST", { ...form });
       setSearchData(data);
+      messageSuccess("Мы нашли вашу вакансию :)");
     } catch (e) {}
   };
 

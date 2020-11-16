@@ -46,6 +46,11 @@ function AuthNav() {
                 Вакансии
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                Отклики
+              </Link>
+            </li>
           </ul>
           <ul className="navbar-nav mr-5">
             <li className="nav-item active">

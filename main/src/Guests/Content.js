@@ -3,7 +3,6 @@ import { useHttp } from "../Hooks/http.hook";
 import { Loader } from "../components/Loader";
 
 import JobsList from "../components/JobsList";
-import { Paginations } from "../components/Pagination";
 
 function Content() {
   const [jobs, setJobs] = useState([]);
@@ -14,6 +13,7 @@ function Content() {
       setJobs(feched);
     } catch (e) {}
   }, [request]);
+
   useEffect(() => {
     jobsFeched();
   }, [jobsFeched]);

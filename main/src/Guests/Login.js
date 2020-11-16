@@ -91,7 +91,7 @@ function Login() {
         >
           Login
         </button>
-        <label className="mt-2">Нету аккаута?</label>
+        <label className="mt-2">Нету аккаунта?</label>
         <p>
           <Link to="/register">Зарегестрироваться</Link>
         </p>

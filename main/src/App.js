@@ -6,6 +6,7 @@ import { useRoutes } from "./routes";
 import { Loader } from "./components/Loader";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { Footer } from "./components/Footer";
 
 function App() {
   const { token, login, logout, userId, userFN, userLN, ready } = useAuth();
@@ -42,6 +43,7 @@ function App() {
             draggable
             pauseOnHover
           />
+          <Footer></Footer>
         </Router>
       </AuthContext.Provider>
     </>
