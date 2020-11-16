@@ -23,16 +23,22 @@ router.post("/create", async (req, res) => {
 router.post("/search", async (req, res) => {
   try {
     const { title, city } = req.body;
-
-    const jobs = await Jobs.find({ title, city });
+    const jobs = await Jobs.find({ title: title });
     if (!jobs || !city) {
-      return res.json("Не удалось найти такую вакансию 😢");
+      res.status(500).json({
+        message: "Не удалось найти вакансию 😓",
+      });
     }
-    res.json({
-      jobsTitle: jobs.title,
-      jobsCity: jobs.city,
-      jobsBody: jobs.body,
+
+    const jobsMap = jobs.map((job, index) => {
+      return {
+        jobTitle: job.title,
+        jobBody: job.body,
+        jobCity: job.city,
+        jobId: job.id,
+      };
     });
+    res.json(jobsMap);
   } catch (e) {
     res.status(500).json({ message: "Something is wrong. Try again" });
   }

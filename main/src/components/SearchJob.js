@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHttp } from "../Hooks/http.hook";
 import { useMessageError, useMessageSuccess } from "../Hooks/message.hook";
 import { Loader } from "../components/Loader";
+import { Link } from "react-router-dom";
 
 export const SearchJob = () => {
   const messageError = useMessageError();
@@ -16,6 +17,7 @@ export const SearchJob = () => {
     title: "",
     city: "",
   });
+  const [searchData, setSearchData] = useState([]);
 
   useEffect(() => {
     messageError(error);
@@ -25,13 +27,41 @@ export const SearchJob = () => {
   const Search = async () => {
     try {
       const data = await request("/api/jobs/search", "POST", { ...form });
-      messageSuccess(data);
+      setSearchData(data);
     } catch (e) {}
   };
 
   if (loading) {
-    <Loader></Loader>;
+    return <Loader />;
   }
+  if (!loading && searchData.length >= 1) {
+    return (
+      <div>
+        {searchData.map((job, index, key) => {
+          return (
+            <div className="container mt-5" key={job.jobId}>
+              <div className="row">
+                <div className="col mt-1">
+                  <div className="card" id="card">
+                    <div className="card-body">
+                      <Link to={`/detail/${job.jobId}`} className="">
+                        <h5 className="card-title">{job.jobTitle}</h5>
+                      </Link>
+                      <p className="card-text">{job.jobsBody}</p>
+                      <p className="card-text">
+                        Город <b>{job.jobCity}</b>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
   return (
     <div className="container text-dark mt-5">
       <div className="form-inline my-2 my-lg-0 text-center">
