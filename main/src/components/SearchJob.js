@@ -37,6 +37,9 @@ export const SearchJob = () => {
   if (!loading && searchData.length >= 1) {
     return (
       <div>
+        <div className="container text-center">
+          <h1>Результат поиска</h1>
+        </div>
         {searchData.map((job, index, key) => {
           return (
             <div className="container mt-5" key={job.jobId}>
@@ -61,7 +64,6 @@ export const SearchJob = () => {
       </div>
     );
   }
-
   return (
     <div className="container text-dark mt-5">
       <div className="form-inline my-2 my-lg-0 text-center">

@@ -24,7 +24,7 @@ router.post("/search", async (req, res) => {
   try {
     const { title, city } = req.body;
     const jobs = await Jobs.find({ title: title });
-    if (!jobs || !city) {
+    if (!jobs) {
       res.status(500).json({
         message: "Не удалось найти вакансию 😓",
       });
@@ -38,7 +38,7 @@ router.post("/search", async (req, res) => {
         jobId: job.id,
       };
     });
-    res.json(jobsMap);
+    res.status(201).json(jobsMap);
   } catch (e) {
     res.status(500).json({ message: "Something is wrong. Try again" });
   }
