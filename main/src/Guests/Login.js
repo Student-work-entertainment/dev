@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Loader } from "../components/Loader";
 import { AuthContext } from "../Context/AuthContext";
 import { useHttp } from "../Hooks/http.hook";
@@ -90,6 +91,10 @@ function Login() {
         >
           Login
         </button>
+        <label className="mt-2">Нету аккаута?</label>
+        <p>
+          <Link to="/register">Зарегестрироваться</Link>
+        </p>
       </div>
     </div>
   );

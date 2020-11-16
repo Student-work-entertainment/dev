@@ -23,8 +23,8 @@ router.post("/create", async (req, res) => {
 router.post("/search", async (req, res) => {
   try {
     const { title, city } = req.body;
-    const jobs = await Jobs.find({ title: title });
-    if (!jobs) {
+    const jobs = await Jobs.find({ title: { $regex: title, $options: "i" } });
+    if (jobs.length <= 0) {
       res.status(500).json({
         message: "Не удалось найти вакансию 😓",
       });

@@ -50,7 +50,7 @@ export const SearchJob = () => {
                       <Link to={`/detail/${job.jobId}`} className="">
                         <h5 className="card-title">{job.jobTitle}</h5>
                       </Link>
-                      <p className="card-text">{job.jobsBody}</p>
+                      <p className="card-text">{job.jobBody}</p>
                       <p className="card-text">
                         Город <b>{job.jobCity}</b>
                       </p>
