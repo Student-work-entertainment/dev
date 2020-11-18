@@ -1,3 +1,11 @@
 .App {
   font-family: "Roboto", sans-serif;
 }
+@media (max-width: 1000px) {
+  .need-hide {
+    display: none;
+  }
+  #login-form {
+    display: block;
+  }
+}
