@@ -4,28 +4,43 @@ import { Link } from "react-router-dom";
 export const ResponseCard = (job) => {
   return (
     <div className="container">
-      <h1>Отклик на вакансию {job.job.title}</h1>
-      <div className="conteiner mt-4 shadow-lg p-5 mb-5">
-        <h3 className="text-center">{job.job.title}</h3>
-        <p>Оисание: {job.job.body}</p>
-        <p>
-          <b>Город: </b> {job.job.city}
-        </p>
+      <div className="text-center">
+        <h1>Отклик на вакансию {job.job.title}</h1>
       </div>
-      <p>Загрузите ваше резюме:</p>
-      <input type="file"></input>
-      <br></br>
-      <textarea
-        className="mt-3"
-        placeholder="Сопроводительное письмо..."
-      ></textarea>
-      <br></br>
-      <button className="btn btn-success mt-3">Отклик</button>
-      <br></br>
-      <label className="mt-4 mr-1">или </label>
-      <Link to="/" className="btn btn-danger mb-4">
-        Отменить
-      </Link>
+
+      <div className="row">
+        <div className="col mt-4 shadow-lg p-5 mb-5">
+          <h3 className="text-center">{job.job.title}</h3>
+          <p>Описание: {job.job.body}</p>
+          <p>
+            <b>Город: </b> {job.job.city}
+          </p>
+        </div>
+        <div className="col">
+          <div className="container">
+            <img
+              src={"../images/anket.png"}
+              className="d-flex justify-content-center mx-auto"
+              width="300px"
+            ></img>
+          </div>
+          <div className="contaier text-center">
+            <h3>Загрузите ваше резюме</h3>
+            <input type="file" className="mt-3"></input>
+          </div>
+          <div className="container">
+            <textarea
+              className="mt-3 btn-block"
+              placeholder="Сопроводительное письмо..."
+            ></textarea>
+            <br></br>
+            <button className="btn btn-block btn-success mt-3">Отклик</button>
+            <Link to="/" className="btn btn-block mt-3 btn-danger mb-4">
+              Отменить
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

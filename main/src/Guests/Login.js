@@ -50,14 +50,14 @@ function Login() {
       <div class="container mb-5">
         <div className="row p-5">
           <div className="col mt-5 need-hide">
-            <img src={"./images/1.png"} width="500px" height="500px"></img>
+            <img src={"../images/1.png"} width="500px" height="500px"></img>
           </div>
           <div class="col p-3">
             <div id="login-form" className="container text-dark">
               <div>
                 <div className="d-flex justify-content-center">
                   <img
-                    src={"./images/profile.png"}
+                    src={"../images/profile.png"}
                     width="150px"
                     height="150px"
                   ></img>

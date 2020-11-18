@@ -13,7 +13,7 @@ function AuthNav() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg p-3 mb-5">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-warning shadow-lg p-3 mb-5">
         <Link to="/" className="navbar-brand" href="#">
           Домой
         </Link>
@@ -56,7 +56,8 @@ function AuthNav() {
             <li className="nav-item active">
               <Link
                 to="/"
-                className="ml-3 btn-outline-warning nav-link btn btn-block btn-warning text-dark"
+                id="btn-logout"
+                className="ml-3 btn btn-outline-dark text-white"
                 href="#"
                 onClick={logoutHandler}
               >
