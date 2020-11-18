@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Nav() {
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark shadow-lg p-3 mb-5 ">
+      <nav className="navbar navbar-expand navbar-dark bg-warning shadow-lg">
         <Link to="/" className="navbar-brand" href="#">
           Домой
         </Link>

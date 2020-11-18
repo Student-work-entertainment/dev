@@ -47,27 +47,25 @@ function Login() {
 
   return (
     <div id="main-login-div">
-      <div class="container">
-        <div class="row">
-          <div class="col need-hide">
-            <div className="pt-5">
-              <img src={"./images/1.png"} width="500px" height="500px"></img>
-            </div>
+      <div class="container mb-5">
+        <div className="row p-5">
+          <div className="col mt-5 need-hide">
+            <img src={"./images/1.png"} width="500px" height="500px"></img>
           </div>
           <div class="col p-3">
-            <div id="login-form" className="containe text-dark">
+            <div id="login-form" className="container text-dark">
               <div>
                 <div className="d-flex justify-content-center">
                   <img
                     src={"./images/profile.png"}
-                    width="200px"
-                    height="200px"
+                    width="150px"
+                    height="150px"
                   ></img>
                 </div>
               </div>
-              <div className="container-fluid">
+              <div>
                 <div className="form-group mt-3">
-                  <label>Email address</label>
+                  <label>Ваш email</label>
                   <input
                     type="email"
                     className="form-control border border-warning"
@@ -77,12 +75,9 @@ function Login() {
                     placeholder="Enter email"
                     onChange={changeHandler}
                   ></input>
-                  <small id="emailHelp" className="form-text text-muted">
-                    We'll never share your email with anyone else.
-                  </small>
                 </div>
                 <div className="form-group">
-                  <label>Password</label>
+                  <label>Ваш пароль</label>
                   <input
                     type="password"
                     className="form-control border border-warning"
@@ -99,8 +94,9 @@ function Login() {
                   type="submit"
                   className="btn btn-block btn-warning m-auto"
                 >
-                  Login
+                  Вход
                 </button>
+                <hr></hr>
                 <label className="mt-2">Нету аккаунта?</label>
                 <p>
                   <Link to="/register">Зарегестрироваться</Link>

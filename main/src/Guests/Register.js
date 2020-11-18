@@ -38,84 +38,92 @@ function Register() {
   };
 
   return (
-    <div className="container col-sm-5 mt-4">
-      <div>
-        <h1 style={register}>Register page</h1>
-      </div>
-      <div className="form-row">
-        <div className="col-md-6 mb-3">
-          <label>First name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="FirsName"
-            name="FirsName"
-            placeholder="Write you name"
-            onChange={changeHandler}
-            required
-          ></input>
-          <div className="valid-feedback">Looks good!</div>
+    <div className="container mb-5">
+      <div className="row p-5">
+        <div className="col need-hide mt-5 ">
+          <img src={"./images/register.png"} width="500px" height="500px"></img>
         </div>
-        <div className="col-md-6 mb-3">
-          <label>Last name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="LastName"
-            name="LastName"
-            placeholder="Write you last name"
-            onChange={changeHandler}
-            required
-          ></input>
-          <div className="valid-feedback">Looks good!</div>
+        <div className="col">
+          <div className="pb-3">
+            <h1 className="text-warning text-center">Регестрация 😼</h1>
+            <hr></hr>
+          </div>
+          <div className="form-row">
+            <div className="text-center col-md-6 mb-3">
+              <label>Ваше имя?</label>
+              <input
+                type="text"
+                className="form-control"
+                id="FirsName"
+                name="FirsName"
+                placeholder="Write you name"
+                onChange={changeHandler}
+                required
+              ></input>
+              <div className="valid-feedback">Looks good!</div>
+            </div>
+            <div className="text-center col-md-6 mb-3">
+              <label>Ваша фамилия?</label>
+              <input
+                type="text"
+                className="form-control"
+                id="LastName"
+                name="LastName"
+                placeholder="Write you last name"
+                onChange={changeHandler}
+                required
+              ></input>
+              <div className="valid-feedback">Looks good!</div>
+            </div>
+          </div>
+          <div className="form-group">
+            <label>Ваш email</label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              name="email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              onChange={changeHandler}
+            ></input>
+            <small id="emailHelp" className="form-text text-muted">
+              We'll never share your email with anyone else.
+            </small>
+          </div>
+          <div className="form-group">
+            <label>Ваш новый пароль</label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              name="password"
+              placeholder="Password"
+              onChange={changeHandler}
+            ></input>
+          </div>
+          <div className="form-group">
+            <label>Введите его ещё раз</label>
+            <input
+              type="password"
+              className="form-control"
+              id="secondPassword"
+              name="secondPassword"
+              placeholder="Password again"
+              onChange={changeHandler}
+            ></input>
+          </div>
+          <div className="form-check"></div>
+          <button
+            type="submit"
+            className="btn btn-warning btn-block mb-4"
+            onClick={registerHandelr}
+            disabled={loading}
+          >
+            Регестрация
+          </button>
         </div>
       </div>
-      <div className="form-group">
-        <label>Email address</label>
-        <input
-          type="email"
-          className="form-control"
-          id="email"
-          name="email"
-          aria-describedby="emailHelp"
-          placeholder="Enter email"
-          onChange={changeHandler}
-        ></input>
-        <small id="emailHelp" className="form-text text-muted">
-          We'll never share your email with anyone else.
-        </small>
-      </div>
-      <div className="form-group">
-        <label>Password</label>
-        <input
-          type="password"
-          className="form-control"
-          id="password"
-          name="password"
-          placeholder="Password"
-          onChange={changeHandler}
-        ></input>
-      </div>
-      <div className="form-group">
-        <label>Password again</label>
-        <input
-          type="password"
-          className="form-control"
-          id="secondPassword"
-          name="secondPassword"
-          placeholder="Password again"
-          onChange={changeHandler}
-        ></input>
-      </div>
-      <div className="form-check"></div>
-      <button
-        type="submit"
-        className="btn btn-primary btn-block mb-4"
-        onClick={registerHandelr}
-        disabled={loading}
-      >
-        Register
-      </button>
     </div>
   );
 }
