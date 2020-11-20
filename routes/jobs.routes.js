@@ -3,14 +3,18 @@ const router = Router();
 const moment = require("moment");
 
 const Jobs = require("../models/JobsVacansy");
+const User = require("../models/User");
 
-router.post("/create", async (req, res) => {
+const auth = require("../middleware/auth.middleware");
+
+router.post("/create", auth, async (req, res) => {
   try {
     const { title, body, city } = req.body;
     const jobs = new Jobs({
       title,
       body,
       city,
+      owner: req.user.userId,
     });
     await jobs.save();
     res.status(201).json({ message: " Вакансия создана! 😉", jobId: jobs._id });
@@ -51,7 +55,15 @@ router.post("/search", async (req, res) => {
 router.get("/jobs", async (req, res) => {
   try {
     const jobs = await Jobs.find({});
+    res.json(jobs);
+  } catch (e) {
+    res.status(500).json({ message: "Something is wrong. Try again" });
+  }
+});
 
+router.get("/myvacancy", auth, async (req, res) => {
+  try {
+    const jobs = await Jobs.find({ owner: req.user.userId });
     res.json(jobs);
   } catch (e) {
     res.status(500).json({ message: "Something is wrong. Try again" });

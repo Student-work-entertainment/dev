@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useHttp } from "../Hooks/http.hook";
 import { useMessageError, useMessageSuccess } from "../Hooks/message.hook";
+import { AuthContext } from "../Context/AuthContext";
 
 function UserResume() {
+  const auth = useContext(AuthContext);
   const history = useHistory();
   const messageError = useMessageError();
   const messageSuccess = useMessageSuccess();
@@ -26,7 +28,14 @@ function UserResume() {
 
   const AddVacancy = async () => {
     try {
-      const data = await request("/api/jobs/create", "POST", { ...form });
+      const data = await request(
+        "/api/jobs/create",
+        "POST",
+        { ...form },
+        {
+          Authorization: `Bearer ${auth.token}`,
+        }
+      );
       messageSuccess("Вакансия создана!");
       history.push(`/detail/${data.jobId}`);
     } catch (e) {}

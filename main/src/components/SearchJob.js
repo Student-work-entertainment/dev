@@ -108,11 +108,7 @@ export const SearchJob = () => {
             onChange={changeHandler}
           ></input>
 
-          <button
-            onClick={Search}
-            className="btn btn-primary my-2 my-sm-0"
-            type="submit"
-          >
+          <button onClick={Search} className="btn btn-warning" type="submit">
             Поиск
           </button>
         </div>

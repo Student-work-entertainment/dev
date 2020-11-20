@@ -7,6 +7,8 @@ import { Loader } from "./components/Loader";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { Footer } from "./components/Footer";
+import AuthNav from "./User/UserNav";
+import Nav from "./Guests/Nav";
 
 function App() {
   const { token, login, logout, userId, userFN, userLN, ready } = useAuth();
@@ -31,6 +33,8 @@ function App() {
         }}
       >
         <Router>
+          {isAuthenticated && <AuthNav></AuthNav>}
+          {!isAuthenticated && <Nav></Nav>}
           <div>{routes}</div>
           <ToastContainer
             position="top-right"

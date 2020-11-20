@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useCallback, useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import { useHttp } from "../Hooks/http.hook";
+import { Loader } from "../components/Loader";
+import JobsList from "../components/JobsList";
 
 function UserProfile() {
+  const auth = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
+  const [jobs, setJobs] = useState([]);
+  const { loading, request } = useHttp();
+  const jobsFeched = useCallback(async () => {
+    try {
+      const feched = await request("/api/jobs/myvacancy", "GET", null, {
+        Authorization: `Bearer ${auth.token}`,
+      });
+      setJobs(feched);
+    } catch (e) {}
+  }, [request, token]);
+
+  useEffect(() => {
+    jobsFeched();
+  }, [jobsFeched]);
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
   return (
     <div className="container">
       <AuthContext.Consumer>
@@ -17,13 +40,9 @@ function UserProfile() {
                 {" " + value.userLN}
               </h3>
               <h3>
-                <b> Аккаунт ID: </b>
-                {value.userId}
+                <b>Ваши вакансии: </b>
               </h3>
-              <h3>
-                <b>Ваши резюме: </b>
-                {"Тут будут ваши резюме :)"}
-              </h3>
+              <>{!loading && <JobsList jobs={jobs}></JobsList>}</>
               <h3>
                 <b>Статус аккаунта: </b>
                 {"User"}

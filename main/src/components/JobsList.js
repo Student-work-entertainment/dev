@@ -9,7 +9,7 @@ function JobsList({ jobs }) {
           className="alert alert-danger text-center text-dark mt-3"
           role="alert"
         >
-          Для вас работы пока что нету 😓
+          Здесь пока ничего нету 😓
         </div>
       </div>
     );
@@ -25,9 +25,11 @@ function JobsList({ jobs }) {
                   <h5 className="card-title">{job.title}</h5>
                 </Link>
                 <p className="card-text">Описание: {job.body}</p>
-                <p className="card-text">{job.data}</p>
                 <p className="card-text">
                   Город <b>{job.city}</b>
+                </p>
+                <p className="card-text">
+                  Дата размещения: {new Date(job.data).toLocaleDateString()}
                 </p>
               </div>
             </div>
@@ -35,9 +37,9 @@ function JobsList({ jobs }) {
         );
       })}
       <div className="container">
-        <button className="btn btn-outline-warning btn-lg btn-block mb-5">
+        {/* <button className="btn btn-outline-warning btn-lg btn-block mb-5">
           Загрузить ещё
-        </button>
+        </button> */}
       </div>
     </div>
   );
